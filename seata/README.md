@@ -10,3 +10,7 @@
 ## 使用自定义配置文件
 registry.conf
 file.conf
+
+## issues
+Q:config type can not be null
+A:https://github.com/seata/seata/issues/2959
