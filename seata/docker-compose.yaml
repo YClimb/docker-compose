@@ -7,6 +7,7 @@ services:
         ports:
             - 8091:8091
         environment:
+            #- SEATA_IP=127.0.0.1
             - SEATA_PORT=8091
             # 指定seata-server的事务日志存储方式, 支持db ,file,redis(Seata-Server 1.3及以上版本支持), 默认是 file
             - STORE_MODE=file
