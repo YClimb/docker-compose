@@ -1,19 +1,20 @@
 version: "2"
 services:
     nacos:
+        hostname: nacos-mysql
         image: nacos/nacos-server:latest
         container_name: nacos-standalone-mysql
-#        env_file:
-#            - ./env/nacos-standlone-mysql.env
-        environment:
-            - PREFER_HOST_MODE=hostname
-            - MODE=standalone
-            - SPRING_DATASOURCE_PLATFORM=mysql
-            - MYSQL_SERVICE_HOST=mysql
-            - MYSQL_SERVICE_DB_NAME=nacos_dev
-            - MYSQL_SERVICE_PORT=3306
-            - MYSQL_SERVICE_USER=nacos
-            - MYSQL_SERVICE_PASSWORD=Nacos_dev.2020
+        env_file:
+            - ./env/nacos-standlone-mysql.env
+#        environment:
+#            - PREFER_HOST_MODE=hostname
+#            - MODE=standalone
+#            - SPRING_DATASOURCE_PLATFORM=mysql
+#            - MYSQL_SERVICE_HOST=mysql
+#            - MYSQL_SERVICE_DB_NAME=nacos_dev
+#            - MYSQL_SERVICE_PORT=3306
+#            - MYSQL_SERVICE_USER=nacos
+#            - MYSQL_SERVICE_PASSWORD=Nacos_dev.2020
             #- NACOS-NAMESPACE=nacos-mysql   #指定nacos中的命名空间
         volumes:
             - ./standalone-logs/:/home/nacos/logs
@@ -21,7 +22,5 @@ services:
         ports:
             - "8848:8848"
             - "9555:9555"
-#        depends_on:
-#            - mysql
         restart: on-failure
 
